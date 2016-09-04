@@ -57,7 +57,7 @@ function captureFrame() {
 
 	var imgData = canvas.toDataURL();
 
-	createShot(imgData);
+	//reateShot(imgData);
 	pushDataToLTNG(imgData);
 }
 
