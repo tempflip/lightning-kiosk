@@ -25,6 +25,8 @@ function initCam() {
 
 function startCamera() {
 	$(".cameraDiv").show();
+	$(".webviewDiv").hide();
+
 	var vidSettings = {
 	    video: {
 	      optional: [{
@@ -65,6 +67,8 @@ function pushDataToLTNG(imgData) {
 	ltng.executeScript({ code : myCode }, 
 		function(x) {
 			console.log('code pushed to LTNG');
+			$(".cameraDiv").hide();
+			$(".webviewDiv").show();
 		}
 	);	
 }
