@@ -3,20 +3,17 @@
 <body>
 
 
+	<webview id="ltng" src="https://blackthorn-kiosk.herokuapp.com/webview" style="width:640px; height:400px"></webview>
+
+	<div class="cameraDiv">
+		aha
+		<video id="vid" autoplay poster="icon.jpg" width="100" height="100"></video>
+		<br/>
+		<button id="captureButton">Capture!</button>
 	<div>
-	<button id="startCamera">Start Camera</button>
-	</div>
-	<video id="vid" autoplay poster="icon.jpg" width="400" height="400"></video>
-
-	<div id="shots">
-	</div>
-
-
-	<webview id="ltng" src="http://localhost:8000/webview.html" style="width:640px; height:250px"></webview>
-
+	
 	<script src="jquery3.js"></script>
 	<script src="camera.js" ></script>	
-
 
 
 

@@ -1,16 +1,15 @@
 var camId = null;
 var ltng = document.querySelector('#ltng');
-
 initCam();
 
-
-
-// event handlers
-$("#startCamera").click(function() {
-	startCamera();
+ltng.addEventListener('consolemessage', function(e) {
+	if(e.message == '### showCam') startCamera();
 });
 
-$("#vid").click(function() {
+$(".cameraDiv").hide();
+
+
+$("#vid, #captureButton").click(function() {
 	captureFrame();
 });
 
@@ -20,12 +19,12 @@ function initCam() {
 	MediaStreamTrack.getSources(function(cams) {
 		cams.forEach(function(e) {
 			if (e.kind == 'video') camId = e.id;
-
 		});
 	});
 }
 
 function startCamera() {
+	$(".cameraDiv").show();
 	var vidSettings = {
 	    video: {
 	      optional: [{
@@ -54,23 +53,14 @@ function captureFrame() {
 	canvas.height = frame.height;
 	var ctx = canvas.getContext('2d');
 	ctx.drawImage(frame, 0, 0);
-
 	var imgData = canvas.toDataURL();
 
-	//reateShot(imgData);
 	pushDataToLTNG(imgData);
 }
 
-function createShot(data) {
-	var img = $("<img/>");
-	img.attr("src", data);
-	img.attr("width", 100);
-	img.attr("height", 75);
-	$('#shots').append(img);
-}
-
 function pushDataToLTNG(imgData) {
-	myCode = "document.getElementById('imgData').value = '" + imgData + "';";
+	myCode =  "document.getElementById('imgData').value = '" + imgData + "'; ";
+	myCode += "document.getElementById('showCCformButton').click(); ";
 
 	ltng.executeScript({ code : myCode }, 
 		function(x) {
