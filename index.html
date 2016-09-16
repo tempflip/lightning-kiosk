@@ -1,17 +1,54 @@
 <html>
 
+<head>
+
+	<link rel="stylesheet" type="text/css" href="css/salesforce-lightning-design-system.min.css" />
+	<script src="jquery3.js"></script>
+	<script src="https://p-l-out-dev1-dev-ed--c.na3.visual.force.com/lightning/lightning.out.js"></script>
+
+	<style>
+		.webviewDiv {
+			text-align: center;
+		}
+
+		.heading {
+			font-size: 42px;
+			text-align: center;
+			margin-bottom: 60px;
+		}
+
+		.cameraDiv {
+			text-align: center;
+		}	
+
+		.sectionHeader {
+			font-size: 26px;
+			margin-bottom: 40px;
+		}	
+	</style>
+
+</head>
+
 <body>
+
+	<h1 class="heading">blackthorn.io kiosk</h1>
 
 	<div class="webviewDiv">
 		
-		<webview id="ltng" src="https://blackthorn-kiosk.herokuapp.com/webview" style="width:640px; height:400px"></webview>
+		<webview id="ltng" src="https://blackthorn-kiosk.herokuapp.com/webview" style="width:640px; height:600px"></webview>
 
 	</div>
 
 	<div class="cameraDiv">
-		<video id="vid" autoplay poster="icon.jpg" width="300" height="300"></video>
-		<br/>
-		<button id="captureButton">Capture!</button>
+		<div class="sectionHeader">
+			2. Now we'll take a photo
+		</div>
+		
+		<video id="vid" autoplay poster="icon.jpg" width="450" height="400"></video>
+		
+		<p/>
+		
+		<button class="slds-button slds-button--brand" id="captureButton">Capture!</button>
 	<div>
 	
 	<script src="jquery3.js"></script>
