@@ -29,12 +29,18 @@ function startCamera() {
 
 	var vidSettings = {
 	    video: {
+	      mandatory: {
+	      	minWidth: 640,
+	      	minHeight: 600,
+	      	maxWidth: 640,
+	      	maxHeight: 600
+	      },
 	      optional: [{
 	        sourceId: camId
 	      }]
 	    },
 	    audio:false
-	}
+	};
 
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
 	console.log(navigator.getUserMedia);
@@ -51,8 +57,8 @@ function startCamera() {
 function captureFrame() {
 	var frame = document.getElementById('vid');
 	var canvas = document.createElement('canvas');
-	canvas.width = frame.width;
-	canvas.height = frame.height;
+	canvas.width = 640;
+	canvas.height = 600;
 	var ctx = canvas.getContext('2d');
 	ctx.drawImage(frame, 0, 0);
 	var imgData = canvas.toDataURL();
